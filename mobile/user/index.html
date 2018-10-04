@@ -56,14 +56,19 @@
 <script src="../res/mui/js/mui.min.js"></script>
 <script src="../js/jquery.min.js"></script>
 <script>
-    // 检测用户是否已经登录，如果登录显示用户信息，
+    // 检测用户是否已经登录，如果登录显示用户信息,
     // 相反则跳转至login.html
     $.ajax({
         // 如果直接访问http://localhost:3000
         // 会有跨域问题，可以通过配置Apache的反向代理来解决
         //   /api  等同于    http://localhost:3000
         url:'/api/user/queryUserMessage',
+        // url:'http://localhost:3000/user/queryUserMessage',
         type:'get',
+        // xhrFields: {
+        //     让浏览器将cookie传到后端
+        //     withCredentials: true
+        //    },
         success:function (info) {
             console.log(info);
             if (info.error) {

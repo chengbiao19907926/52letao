@@ -48,8 +48,13 @@
     $('.btn_login').on('click',function () {
        $.ajax({
         //    发送ajax请求
+        //    url:'http://localhost:3000/user/login',
            url:'/api/user/login',
            type:'post',
+        //    xhrFields: {
+        //     //    让浏览器将cookie传到后端
+        //     withCredentials: true
+        //    },
            data:{
                username:$('input[name="name"]').val(),
                password:$('input[name="pass"]').val()
